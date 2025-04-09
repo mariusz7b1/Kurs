@@ -1,12 +1,20 @@
 ﻿Clear-Host
-# symulujemy uplyw czasu
-$today=(get-date).AddDays(42)
+<#
+$pass=  ConvertTo-SecureString "Pa55w.rd123###" -AsPlainText -Force
+$users=Get-ADUser -Filter{name -like 'k*' -and Enabled -eq $True -and PasswordNeverExpires -eq $False}
+foreach($user in $users){
+    $user | Set-ADAccountPassword  -NewPassword $pass
+}
+#>
+
+
+#symulujemy uplyw czasu
+$today=(get-date).AddDays(28)
 
 # pobieramy dane do zmiennej
 $users=Get-ADUser -Filter{name -like 'k*' -and Enabled -eq $True -and PasswordNeverExpires -eq $False}`
   –Properties name,msDS-UserPasswordExpiryTimeComputed `
-  | Select-Object -Property name,`
-  @{Name="ExpiryDate";Expression= `
+  | Select-Object -Property name, @{Name="ExpiryDate";Expression= `
   {[int]([datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed") - $today).totaldays}} 
 
 foreach ($user in $Users){
