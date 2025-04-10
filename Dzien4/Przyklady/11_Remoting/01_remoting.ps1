@@ -1,9 +1,9 @@
 ﻿# 1
-Set-ExecutionPolicy RemoteSigned
-Enable-PSRemoting
+#Set-ExecutionPolicy RemoteSigned
+#Enable-PSRemoting
 
 # 2
-Enter-PSSession –ComputerName LON-DC1
+Enter-PSSession –ComputerName SVR1 
 
 # 3
 Get-Process

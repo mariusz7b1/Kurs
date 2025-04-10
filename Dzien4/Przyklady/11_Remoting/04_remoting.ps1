@@ -1,31 +1,9 @@
-﻿# 1
-$dc = New-PSSession LON-DC1
+﻿$tab_computers="SVR1","SVR2"
 
-# 2
-Get-Module –PSSession $dc –ListAvailable
-
-# 3
-Import-Module –PSSession $dc –Name ActiveDirectory –Prefix Rem
-
-# 4
-Help Get-RemADUser
-# and note that the server may not have updated help, so the help you get may be truncated and include only the Syntax section
-
-# 5
-Get-RemADUser –filter *
-
-# 6
-$dc | Remove-PSSession
-
-# 7
-Get-RemADUser 
-# and note that an error is displayed because the command is no longer available through implicit Remoting.
-
-
-
-
-
-
-
-
-
+foreach($komp in $tab_computers){
+    Write-Host "Wykonuję działania na $komp" -ForegroundColor Cyan
+    Invoke-Command –ComputerName $komp –ScriptBlock{ 
+        Get-EventLog –LogName Security –Newest 3  | FT
+        Get-Process | Sort-Object -Descending cpu | Select-Object -First 2 |FT
+    } 
+}
