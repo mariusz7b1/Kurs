@@ -4,10 +4,10 @@ https://github.com/mariusz7b1/Kurs
 
 Materiały Microsoft
 PL
-https://learn.microsoft.com/pl-pl/training/courses/az-040t00?WT.mc_id=ilt_partner_webpage_wwl&ocid=991060#study-guide
-
+https://learn.microsoft.com/pl-pl/training/courses/az-040t00?WT.mc_id=ilt_partner_webpage_wwl
 US
-https://learn.microsoft.com/en-us/training/courses/az-040t00?WT.mc_id=ilt_partner_webpage_wwl&ocid=991060#study-guide
+https://learn.microsoft.com/en-us/training/courses/az-040t00?WT.mc_id=ilt_partner_webpage_wwl
+
 
 https://learn.microsoft.com/en-us/training/paths/powershell/?source=recommendations
 
